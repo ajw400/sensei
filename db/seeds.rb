@@ -59,7 +59,9 @@ end
 User.all.each do |user|
   if user.teacher
     cat = Category.all.sample
-    subcat = Subcategory.create!(name: Faker::Lorem.word, category_id: cat)
+    subcat = Subcategory.new(name: Faker::Lorem.word)
+    subcat.category = cat
+    subcat.save!
     lesson = Lesson.new(
       description: Faker::Lorem.paragraph,
       hour_price: 40,
