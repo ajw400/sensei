@@ -1,15 +1,35 @@
-<h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<section class="height-100 imagebg text-center" data-overlay="8">
+  <div class="background-image-holder">
+    <%= image_tag "bg-login.jpg" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-5">
+        <form>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.input :email, label: false, placeholder: "Email", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :password, label: false, placeholder: "Password", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.button :submit, "Log in", class: "btn btn--primary type--uppercase" %>
+            </div>
+          </div>
+        </form>
+        <hr>
+        <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+          <span class="btn__text">
+            <i class="socicon-facebook"></i>
+            Login with Facebook
+          </span>
+        </a>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <% end %>
+</section>
