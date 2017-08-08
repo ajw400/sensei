@@ -1,24 +1,29 @@
-<%= render '/shared/navbar' %>
+<div>
 
-<!--  lessson info etc-->
-<p><%= @lesson.description %></p>
-<p><%= @lesson.hour_price %></p>
-<p><%= @lesson.level %></p>
-<p><%= @lesson.title %></p>
+  <div class="col-xs-12 col-sm-6">
+    <!--  lessson info etc-->
+    <p><%= @lesson.title %></p>
+    <p><%= @lesson.description %></p>
+    <p><%= @lesson.hour_price %></p>
+    <p><%= @lesson.level %></p>
 
-<!-- photo's uploaded by user -->
-<p><%= @lesson.photo %></p>
+    <!-- teacher information -->
+    <p>%><%= @lesson.user.first_name @lesson.user.last_name%></p>
+    <p>%><%= @lesson.user.languages %></p>
+    <p>%><%= @lesson.user.address %></p>
+    <p><%= @lesson.user.city @lesson.user.zipcode %></p>
+    <p>%><%= @lesson.user.company_name %></p>
+    <p>%><%= @lesson.user.bio %></p>
+  </div>
 
-<!-- teacher information -->
-<p>%><%= @lesson.user.first_name %></p>
-<p>%><%= @lesson.user.last_name %></p>
-<p>%><%= @lesson.user.company_name %></p>
-<p>%><%= @lesson.user.profile_pic %></p>
-<p>%><%= @lesson.user.bio %></p>
-<p>%><%= @lesson.user.languages %></p>
-<p>%><%= @lesson.user.address %></p>
-<p>%><%= @lesson.user.zipcode %></p>
-<p>%><%= @lesson.user.city %></p>
+  <div class="col-xs-12 col-sm-6">
+  <!-- profile picture -->
+    <p>%><%= @lesson.user.profile_pic %></p>
+  </div>
 
-<%= render '/shared/footer' %>
+  <div class="col-xs-12 col-sm-6">
+    <!-- photo's uploaded by user(teacher) -->
+    <p><%= @lesson.photo %></p>
+  </div>
 
+</div>

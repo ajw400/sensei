@@ -1,15 +1,23 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-6">
-      <%= current_user.name %>
+      <%= current_user.first_name current_user.last_name  %>
+      <%= current_user.birthdate %>
+      <%= current_user.languages %>
       <%= current_user.address %>
+      <%= current_user.city current_user.zipcode %>
       <%= current_user.phone %>
       <%= current_user.email %>
+
+    <!-- info only for teachers -->
+      <%= current_user.company_name%>
+      <%= current_user.bio %>
+
       <%= link_to, "Update profile", edit_profile_path %>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      picture
+      <%= current_user.profile_pic %>
     </div>
 
   </div>

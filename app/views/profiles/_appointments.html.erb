@@ -1,0 +1,10 @@
+<div class="row">
+
+<% current_user.appointments.each do |appointment| %>
+    <div class="col-xs-12 col-sm-6">
+      <%= appointment.date_time %>
+      <%= appointment.length %>
+      <%= appointment.total_price %>
+      <%= appointment.status %>
+    </div>
+<% end %>
