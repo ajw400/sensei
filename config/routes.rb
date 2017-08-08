@@ -9,14 +9,12 @@ Rails.application.routes.draw do
 
   resources :appointments, only: [] do
     member do
-      get 'confirm', to: "appointments#confirm"
-      get 'deny', to: "appointments#deny"
-      get 'cancel', to: "appointments#cancel"
+      patch :confirm
+      patch :deny
+      patch :cancel
     end
   end
 
-  resources :users, only: [:new, :create, :destroy]
   resource :profile, only: [:show, :edit, :update]
-  resources :subcategories, only: [:create]
 
 end
