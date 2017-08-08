@@ -1,2 +1,23 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<%= render '/shared/navbar' %>
+
+<!-- profile information: address etc
+ -->
+
+<%= current.user.name %>
+<%= current.user.address %>
+<%= current.user.phone %>
+<%= current.user.email %>
+<%= link_to, "Update profile", edit_profile_path %>
+
+
+
+
+
+<!--  lessons (show plus link to add new)
+ -->
+
+<!-- appointments (show)
+ -->
+
+
+<%= render '/shared/footer' %>
