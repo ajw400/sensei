@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
+  <link href="http://weffle.com/css/socicon.css" rel="stylesheet">
+  <link href="http://weffle.com/css/iconsmind.css" rel="stylesheet">
+  <title>TODO</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <div class="main-container">
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render '/shared/footer' %>
+      <%= yield %>
+    <%= render 'shared/alerts' %>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
-  </body>
+  </div>
+</body>
 </html>

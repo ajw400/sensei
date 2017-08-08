@@ -1,0 +1,25 @@
+<% if notice %>
+<div class="notification pos-right pos-top col-sm-4 col-md-3" data-animation="from-top" data-autoshow="100">
+  <div class="boxed boxed--border border--round box-shadow">
+    <div class="text-block">
+      <h5>Notice</h5>
+      <p>
+        <%= notice %>
+      </p>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% if alert %>
+<div class="notification pos-right pos-top col-sm-4 col-md-3" data-animation="from-top" data-autoshow="100">
+  <div class="boxed boxed--border border--round box-shadow">
+    <div class="text-block">
+      <h5>Error!</h5>
+      <p>
+        <%= alert %>
+      </p>
+    </div>
+  </div>
+</div>
+<% end %>
