@@ -13,11 +13,11 @@
       <%= current_user.company_name%>
       <%= current_user.bio %>
 
-      <%= link_to, "Update profile", edit_profile_path %>
+      <%= link_to "Update profile", edit_profile_path %>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <%= current_user.profile_pic %>
+      <%= image_tag current_user.profile_pic %>
     </div>
 
   </div>
