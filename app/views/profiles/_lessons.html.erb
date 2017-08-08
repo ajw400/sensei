@@ -11,7 +11,7 @@
 
         <%= simple_form_for(lesson, url: lesson_path(lesson), method: :patch) do |f| %>
         <div class="form-inputs">
-          <%= render 'lesson_form' %>
+          <%= render 'lesson_form', f: f %>
         </div>
 
         <div class="form-actions">
@@ -35,15 +35,14 @@
     <div class="modal" id="add_lesson">
         <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
           <div class="form-inputs">
-            <%= render 'lesson_form' %>
+            <%= render 'lesson_form', f: f %>
           </div>
 
           <div class="form-actions">
             <%= f.button :submit, "Add" %>
           </div>
         <% end %>
-
-      </div>
+    </div>
 
   </div>
 

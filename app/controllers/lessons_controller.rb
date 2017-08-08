@@ -11,11 +11,25 @@ class LessonsController < ApplicationController
   end
 
   def update
+    lesson = Lesson.find(params[:id])
+    lesson.update(lesson_params)
+    lesson.save!
+    redirect_to profile_path
   end
 
   def destroy
   end
 
   def create
+    lesson = Lesson.new(lesson_params)
+    lesson.user = current_user
+    lesson.save!
+    redirect_to profile_path
+  end
+
+  private
+
+  def lesson_params
+    params.require(:lesson).permit(:description, :title, :photo, :level, :hour_price)
   end
 end
