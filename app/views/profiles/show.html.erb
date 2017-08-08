@@ -1,23 +1,19 @@
-<%= render '/shared/navbar' %>
+
+<div class="container">
 
 <!-- profile information: address etc
  -->
+<%= render 'profile_info' %>
 
-<%= current.user.name %>
-<%= current.user.address %>
-<%= current.user.phone %>
-<%= current.user.email %>
-<%= link_to, "Update profile", edit_profile_path %>
-
-
-
-
-
-<!--  lessons (show plus link to add new)
+<!--  lessons (show plus link to add new, only for teachers)
  -->
+<% if current_user.teacher %>
+  <%= render 'lessons' %>
+<% end %>
 
 <!-- appointments (show)
  -->
+<%= render 'appointments' %>
 
+</div>
 
-<%= render '/shared/footer' %>
