@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.1.2'
 gem 'redis'
 gem 'devise'
+gem 'faker'
 
 
 gem 'autoprefixer-rails'
