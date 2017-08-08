@@ -32,6 +32,7 @@ puts "Seeding database"
     bio: Faker::Lorem.paragraph,
     birthdate: Faker::Date.birthday(18, 65),
     languages: "English and Dutch",
+    teacher: true
   )
 end
 
@@ -43,7 +44,7 @@ end
     email: Faker::Internet.email,
     phone: "63959496929",
     password: '123456789',
-    birthdate: Faker::Date.birthday(18, 65),
+    birthdate: Faker::Date.birthday(18, 65)
   )
 end
 
@@ -54,14 +55,31 @@ end
   )
 end
 
-# lessons
+# lessons, subcategories, appointments
 User.all.each do |user|
-  if user.languages
+  if user.teacher
     cat = Category.all.sample
-    subcat = Subcategory.create!(name: Faker::Lorem.word)
-    subcat.category = cat
-    Lesson.new
-
+    subcat = Subcategory.create!(name: Faker::Lorem.word, category: cat)
+    lesson = Lesson.create!(
+      description: Faker::Lorem.paragraph,
+      hour_price[30..40].sample,
+      subcategory: subcat,
+      teacher: user,
+      level: ["beginner, intermediate, advanced"].sample,
+      photo: "http://lorempixel.com/400/200",
+      title: Faker::Lorem.sentence
+    )
+  else
+    lesson = Lesson.all.sample
+    length = [30, 45, 60].sample
+    Appointment.create!(
+      lesson: lesson,
+      user: user,
+      length: length,
+      total_price: lesson.hour_price * length / 60,
+      status: "unconfirmed"
+    )
+  end
 end
 
 puts "Finished!"
