@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <% @lessons.each do |lesson| %>
+      <div class="card">
+        <%= lesson.title %>
+        <%= lesson.hour_price %>
+        <%= lesson.level %>
+        <%= "#{lesson.user.first_name} #{lesson.user.last_name}" %>
+        <%= lesson.subcategory.category.name%>
+        <%= lesson.subcategory.name %>
+      </div>
+    <% end %>
+  </div>
+</div>

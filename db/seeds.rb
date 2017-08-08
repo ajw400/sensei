@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning database"
 
-User.destroy_all
-Lesson.destroy_all
-Appointment.destroy_all
 Category.destroy_all
+Appointment.destroy_all
+Lesson.destroy_all
 Subcategory.destroy_all
+User.destroy_all
 
 puts "Seeding database"
 
@@ -32,18 +32,19 @@ puts "Seeding database"
     bio: Faker::Lorem.paragraph,
     birthdate: Faker::Date.birthday(18, 65),
     languages: "English and Dutch",
+    teacher: true
   )
 end
 
 # students
-20.times.do
+20.times do
   User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     phone: "63959496929",
     password: '123456789',
-    birthdate: Faker::Date.birthday(18, 65),
+    birthdate: Faker::Date.birthday(18, 65)
   )
 end
 
@@ -54,14 +55,35 @@ end
   )
 end
 
-# lessons
+# lessons, subcategories, appointments
 User.all.each do |user|
-  if user.languages
+  if user.teacher
     cat = Category.all.sample
-    subcat = Subcategory.create!(name: Faker::Lorem.word)
+    subcat = Subcategory.new(name: Faker::Lorem.word)
     subcat.category = cat
-    Lesson.new
-
+    subcat.save!
+    lesson = Lesson.new(
+      description: Faker::Lorem.paragraph,
+      hour_price: 40,
+      subcategory: subcat,
+      level: ["beginner, intermediate, advanced"].sample,
+      photo: "http://lorempixel.com/400/200",
+      title: Faker::Lorem.sentence
+    )
+    lesson.user = user
+    lesson.save!
+  elsif Lesson.first
+    lesson = Lesson.all.sample
+    length = [30, 45, 60].sample
+    appt = Appointment.new(
+      lesson: lesson,
+      length: length,
+      total_price: lesson.hour_price * length / 60,
+      status: "unconfirmed"
+    )
+    appt.user = user
+    appt.save!
+  end
 end
 
 puts "Finished!"

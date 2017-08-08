@@ -14,12 +14,11 @@
 <body>
   <div class="main-container">
     <%= render 'shared/navbar' %>
-    <div class="main-container">
       <%= yield %>
-    </div>
     <%= render 'shared/alerts' %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
   </div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+ <div class="row">
+
+<% current_user.lessons.each do |lesson| %>
+    <div class="col-xs-12 col-sm-6">
+      <%= lesson.title %>
+      <%= lesson.description %>
+      <%= lesson.hour_price %>
+      <%= lesson.level %>
+<!--       <%= lesson.photo %> -->
+    </div>
+<% end %>
+
+<%= link_to "Add New Lesson", new_lesson_path %>
+  </div>

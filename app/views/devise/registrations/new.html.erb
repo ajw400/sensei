@@ -4,9 +4,22 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name, required: true, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :phone, required: true, autofocus: true %>
+    <%= f.input :birthdate, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :photo, as: :attachinary %>
+    <%= f.input_field :teacher, inline_label: true, label: false, as: :boolean, class: "teacher-toggle" %>
+    <%= f.input :bio, wrapper_html: { class: 'teacher hidden' } %>
+    <%= f.input :languages, wrapper_html: { class: 'teacher hidden' } %>
+    <%= f.input :company_name, wrapper_html: { class: 'teacher hidden' } %>
+
+    <%= f.input :address, wrapper_html: { class: 'teacher hidden' } %>
+    <%= f.input :zipcode, wrapper_html: { class: 'teacher hidden' } %>
+    <%= f.input :city, wrapper_html: { class: 'teacher hidden' } %>
   </div>
 
   <div class="form-actions">

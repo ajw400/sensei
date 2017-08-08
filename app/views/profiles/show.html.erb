@@ -1,0 +1,19 @@
+
+<div class="container">
+
+<!-- profile information: address etc
+ -->
+<%= render 'profile_info' %>
+
+<!--  lessons (show plus link to add new, only for teachers)
+ -->
+<% if current_user.teacher %>
+  <%= render 'lessons' %>
+<% end %>
+
+<!-- appointments (show)
+ -->
+<%= render 'appointments' %>
+
+</div>
+
