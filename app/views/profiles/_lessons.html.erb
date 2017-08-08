@@ -6,9 +6,12 @@
       <%= lesson.description %>
       <%= lesson.hour_price %>
       <%= lesson.level %>
+      <%= lesson.subcategory.category.name%>
+      <%= lesson.subcategory.name %>
 <!--       <%= lesson.photo %> -->
     </div>
 <% end %>
 
 <%= link_to "Add New Lesson", new_lesson_path %>
   </div>
+
