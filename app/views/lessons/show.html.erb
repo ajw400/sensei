@@ -21,6 +21,20 @@
   <!-- profile picture -->
     <p><%= cl_image_tag @lesson.user.photo.path, width: 200, height: 300, crop: :fill %></p>
 
+    <button data-toggle="modal" class="btn btn--primary type--uppercase" data-target="#book">Book a lesson!</button>
+
+      <div class="modal" id="book">
+        <%= simple_form_for(current_user, url: lesson_appointments_path, method: :patch) do |f| %>
+        <div class="form-inputs">
+          <%= render "profile_form", f: f %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+      </div>
+
   </div>
 
   <div class="col-xs-12 col-sm-6">

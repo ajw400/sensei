@@ -6,7 +6,8 @@
   <%= y.input :category, collection: Category.all, required: true, autofocus: true %>
 <% end %>
 
-
-<%= f.input :subcategory, required: true, autofocus: true %>
+<%= f.association :subcategory, collection: Subcategory.all %>
+<div class="btn btn-primary new_subcategory">Add new subcategory</div>
+<%= f.input :subcategory, required: true, autofocus: true,  wrapper_html: { class: 'sub hidden' }%>
 <%= f.input :level, required: true, autofocus: true %>
 <%= f.input :photo, as: :attachinary %>

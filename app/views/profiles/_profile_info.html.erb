@@ -16,7 +16,7 @@
       <button data-toggle="modal" data-target="#update">Update profile</button>
 
       <div class="modal" id="update">
-        <%= link_to "Edit email, password:", edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to "Edit or remove account", edit_user_registration_path, class: "btn btn-primary" %>
         <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
         <div class="form-inputs">
           <%= render "profile_form", f: f %>

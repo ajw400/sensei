@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_attachment :photo
   has_many :appointments
-  has_many :lessons
+  has_many :lessons, dependent: :destroy
   has_many :subcategories, through: :lessons
   has_many :received_appointments, source: :appointments, through: :lessons
 end
