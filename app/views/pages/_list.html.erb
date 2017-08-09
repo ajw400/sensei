@@ -6,8 +6,10 @@
         <%= lesson.hour_price %>
         <%= lesson.level %>
         <%= "#{lesson.user.first_name} #{lesson.user.last_name}" %>
-        <%= lesson.subcategory.category.name%>
-        <%= lesson.subcategory.name %>
+        <% if lesson.subcategory %>
+          <%= lesson.subcategory.category.name%>
+          <%= lesson.subcategory.name %>
+        <% end %>
       </div>
     <% end %>
   </div>

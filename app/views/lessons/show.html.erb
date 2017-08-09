@@ -2,28 +2,30 @@
 
   <div class="col-xs-12 col-sm-6">
     <!--  lessson info etc-->
-    <p><%= @lesson.title %></p>
-    <p><%= @lesson.description %></p>
-    <p><%= @lesson.hour_price %></p>
-    <p><%= @lesson.level %></p>
+    <h1><%= @lesson.title %></h1>
+    <p>Description: <%= @lesson.description %></p>
+    <p>Price: <%= @lesson.hour_price %></p>
+    <p>Level: <%= @lesson.level %></p>
 
     <!-- teacher information -->
-    <p>%><%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></p>
-    <p>%><%= @lesson.user.languages %></p>
-    <p>%><%= @lesson.user.address %></p>
-    <p><%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %></p>
-    <p>%><%= @lesson.user.company_name %></p>
-    <p>%><%= @lesson.user.bio %></p>
+    <h3>Teacher Information</h3>
+    <p>Name: <%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></p>
+    <p>Languages spoken: <%= @lesson.user.languages %></p>
+    <p>Location: <%= @lesson.user.address %></p>
+    <p>    <%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %></p>
+    <p>Company name: <%= @lesson.user.company_name %></p>
+    <p>Bio: <%= @lesson.user.bio %></p>
   </div>
 
   <div class="col-xs-12 col-sm-6">
   <!-- profile picture -->
-    <p>%><%= @lesson.user.profile_pic %></p>
+    <p><%= cl_image_tag @lesson.user.photo.path, width: 200, height: 300, crop: :fill %></p>
+
   </div>
 
   <div class="col-xs-12 col-sm-6">
     <!-- photo's uploaded by user(teacher) -->
-    <p><%= @lesson.photo %></p>
+    <%= cl_image_tag @lesson.photo.path, width: 200, height: 300, crop: :fill %>
   </div>
 
 </div>

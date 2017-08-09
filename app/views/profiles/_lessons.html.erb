@@ -1,4 +1,4 @@
- <div class="row">
+<div class="row">
 
 <% current_user.lessons.each do |lesson| %>
     <div class="col-xs-12 col-sm-6">
@@ -6,9 +6,47 @@
       <%= lesson.description %>
       <%= lesson.hour_price %>
       <%= lesson.level %>
-<!--       <%= lesson.photo %> -->
-    </div>
-<% end %>
+      <button data-toggle="modal" data-target="#update_lesson">Update lesson</button>
+      <div class="modal" id="update_lesson">
 
-<%= link_to "Add New Lesson", new_lesson_path %>
+        <%= simple_form_for(lesson, url: lesson_path(lesson), method: :patch) do |f| %>
+        <div class="form-inputs">
+          <%= render 'lesson_form', f: f %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update" %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+
+          <% if lesson.photo? %>
+            <%= cl_image_tag lesson.photo.path, width: 200, height: 300, crop: :fill %>
+          <% end %>
+    </div>
+  <% end %>
+  <div class="col-xs-12 col-sm-6">
+
+    <button data-toggle="modal" data-target="#add_lesson">Add lesson</button>
+
+    <div class="modal" id="add_lesson">
+        <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
+          <div class="form-inputs">
+            <%= render 'lesson_form', f: f %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Add" %>
+          </div>
+        <% end %>
+    </div>
+
   </div>
+
+</div>
+
+
+
