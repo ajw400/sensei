@@ -1,4 +1,74 @@
-<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<section class="height-100 imagebg text-center" data-overlay="8">
+  <div class="background-image-holder">
+    <%= image_tag "bg-login.jpg" %>
+  </div>
+  <div class="container pos-vertical-top">
+    <div class="row">
+      <div class="col-sm-5">
+        <form>
+          <div class="row">
+            <div class="col-sm-6">
+              <%= f.input :first_name, label: false, placeholder: "First Name", required: true %>
+            </div>
+            <div class="col-sm-6">
+              <%= f.input :last_name, label: false, placeholder: "Last Name", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :email, label: false, placeholder: "Email", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :phone, label: false, placeholder: "Phone", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :birthdate, label: false, required: true %>
+            </div>
+            <div class="col-sm-6">
+               <%= f.input :password, label: false, placeholder: "Password", required: true %>
+            </div>
+            <div class="col-sm-6">
+               <%= f.input :password_confirmation, label: false, placeholder: "Confirm your Password", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :photo, as: :attachinary, label: false %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input_field :teacher, inline_label: true, label: false, as: :boolean, class: "teacher-toggle" %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :bio, label: false, placeholder: "Bio", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :languages, label: false, placeholder: "Languages", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :address, label: false, placeholder: "Address", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :zipcode, label: false, placeholder: "Zipcode", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :company_name, label: false, placeholder: "Company Name", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :city, label: false, placeholder: "City", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+          </div>
+        </form>
+        <hr>
+        <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+          <span class="btn__text">
+            <i class="socicon-facebook"></i>
+            Sign Up with Facebook
+          </span>
+        </a>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</section>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
