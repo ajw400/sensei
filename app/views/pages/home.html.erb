@@ -1,10 +1,99 @@
-
-<div class="container">
-
-<!-- profile information: address etc
- -->
-<%= render 'list' %>
-
-</div>
+<% title "Sensei - Home" %>
+<section class="cover height-70 imagebg parallax" data-overlay="8">
+  <div class="background-image-holder">
+    <%= image_tag "background/home.jpg" %>
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-9 col-md-7">
+        <h1>
+          Learn Anything from Amazing Instructors
+        </h1>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Equidem, sed audistine modo de Carneade.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="unpad">
+  <div class="row--gapless">
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "music.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Music</h4>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "dance.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Dance</h4>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "driving.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Driving</h4>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "sports.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Sports</h4>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "yoga.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Yoga</h4>
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-2 col-xs-6">
+      <a href="#" class="block">
+        <div class="feature boxed text-center imagebg" data-overlay="8">
+          <div class="background-image-holder">
+            <%= image_tag "language.jpg" %>
+          </div>
+          <h4 class="pos-vertical-center">Language</h4>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="masonry">
+          <div class="row">
+            <div class="masonry__container">
+              <%= render 'list' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
