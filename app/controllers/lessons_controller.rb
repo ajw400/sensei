@@ -29,6 +29,7 @@ class LessonsController < ApplicationController
     redirect_to profile_path
   end
 
+
   private
 
   def lesson_params

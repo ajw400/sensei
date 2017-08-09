@@ -9,5 +9,6 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+
   end
 end
