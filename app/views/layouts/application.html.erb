@@ -6,20 +6,22 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
   <link href="http://weffle.com/css/socicon.css" rel="stylesheet">
   <link href="http://weffle.com/css/iconsmind.css" rel="stylesheet">
-  <title>TODO</title>
+  <title><%= yield(:title) %></title>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 </head>
 <body>
-  <div class="main-container">
+  <div class="nav-container">
     <%= render 'shared/navbar' %>
-      <%= yield %>
+  </div>
+  <div class="main-container">
+    <%= yield %>
     <%= render 'shared/alerts' %>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= cloudinary_js_config %>
-    <%= yield(:after_js) %>
   </div>
+  <%= javascript_include_tag 'application' %>
+  <%= cloudinary_js_config %>
+  <%= yield(:after_js) %>
 </body>
 </html>
