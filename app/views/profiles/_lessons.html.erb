@@ -1,3 +1,4 @@
+<section class="container">
 <div class="row">
 
 <% current_user.lessons.each do |lesson| %>
@@ -6,7 +7,7 @@
       <%= lesson.description %>
       <%= lesson.hour_price %>
       <%= lesson.level %>
-      <button data-toggle="modal" data-target="#update_lesson">Update lesson</button>
+      <button data-toggle="modal" class="btn btn-primary" data-target="#update_lesson">Update lesson</button>
       <div class="modal" id="update_lesson">
 
         <%= simple_form_for(lesson, url: lesson_path(lesson), method: :patch) do |f| %>
@@ -30,7 +31,7 @@
   <% end %>
   <div class="col-xs-12 col-sm-6">
 
-    <button data-toggle="modal" data-target="#add_lesson">Add lesson</button>
+    <button data-toggle="modal" class="btn btn-primary" data-target="#add_lesson">Add lesson</button>
 
     <div class="modal" id="add_lesson">
         <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
@@ -48,5 +49,5 @@
 
 </div>
 
-
+</section>
 
