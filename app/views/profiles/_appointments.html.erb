@@ -1,20 +1,23 @@
-<div class="row">
 
+
+<div class="container">
+<div class="section"><h3>Appointments</h3></div>
 <% current_user.appointments.each do |appointment| %>
-    <div class="col-xs-12 col-sm-6">
-      <%= appointment.date_time %>
-      <%= appointment.length %>
-      <%= appointment.total_price %>
-      <%= appointment.status %>
+    <div class="section">
+      <p>Date and time:  <%= appointment.date_time %></p>
+      <p>Length: <%= appointment.length %></p>
+      <p>Total price: <%= appointment.total_price %></p>
+      <p>Status:  <%= appointment.status %></p>
     </div>
 <% end %>
 
 <% current_user.received_appointments.each do |appointment| %>
-    <div class="col-xs-12 col-sm-6">
-      <p>Date and time: </p> <%= appointment.date_time %>
-      <p>Length: </p> <%= appointment.length %>
-      <p>Total price: </p> <%= appointment.total_price %>
-      <p>Status: </p> <%= appointment.status %>
+    <div class="section">
+      <p>Date and time:  <%= appointment.date_time %></p>
+      <p>Length: <%= appointment.length %></p>
+      <p>Total price: <%= appointment.total_price %></p>
+      <p>Status:  <%= appointment.status %></p>
     </div>
 <% end %>
 
+</div>
