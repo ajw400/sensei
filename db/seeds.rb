@@ -28,7 +28,6 @@ puts "Seeding database"
     password: '123456789',
     # password_confirmation: '123456789',
     company_name: [Faker::Company.name, ""].sample,
-    profile_pic: "http://lorempixel.com/400/200",
     bio: Faker::Lorem.paragraph,
     birthdate: Faker::Date.birthday(18, 65),
     languages: "English and Dutch",
@@ -67,7 +66,6 @@ User.all.each do |user|
       hour_price: 40,
       subcategory: subcat,
       level: ["beginner, intermediate, advanced"].sample,
-      photo: "http://lorempixel.com/400/200",
       title: Faker::Lorem.sentence
     )
     lesson.user = user
