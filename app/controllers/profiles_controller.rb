@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @lesson = Lesson.new
   end
 
   def update

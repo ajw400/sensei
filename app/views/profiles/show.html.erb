@@ -17,3 +17,15 @@
 
 </div>
 
+
+<%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      $('.new_subcategory').on('click', function(event){
+       $('.sub').removeClass('hidden');
+      });
+    });
+  </script>
+<% end %>
+
+

@@ -2,28 +2,51 @@
 
   <div class="col-xs-12 col-sm-6">
     <!--  lessson info etc-->
-    <p><%= @lesson.title %></p>
-    <p><%= @lesson.description %></p>
-    <p><%= @lesson.hour_price %></p>
-    <p><%= @lesson.level %></p>
+    <h1><%= @lesson.title %></h1>
+    <p>Description: <%= @lesson.description %></p>
+    <p>Price: <%= @lesson.hour_price %></p>
+    <p>Level: <%= @lesson.level %></p>
 
     <!-- teacher information -->
-    <p>%><%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></p>
-    <p>%><%= @lesson.user.languages %></p>
-    <p>%><%= @lesson.user.address %></p>
-    <p><%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %></p>
-    <p>%><%= @lesson.user.company_name %></p>
-    <p>%><%= @lesson.user.bio %></p>
+    <h3>Teacher Information</h3>
+    <p>Name: <%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></p>
+    <p>Languages spoken: <%= @lesson.user.languages %></p>
+    <p>Location: <%= @lesson.user.address %></p>
+    <p>    <%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %></p>
+    <p>Company name: <%= @lesson.user.company_name %></p>
+    <p>Bio: <%= @lesson.user.bio %></p>
   </div>
 
   <div class="col-xs-12 col-sm-6">
   <!-- profile picture -->
-    <p>%><%= @lesson.user.profile_pic %></p>
+
+          <% if @lesson.user.photo? %>
+              <p><%= cl_image_tag @lesson.user.photo.path, width: 200, height: 300, crop: :fill %></p>
+          <% end %>
+
+    <button data-toggle="modal" class="btn btn--primary type--uppercase" data-target="#book">Book a lesson!</button>
+
+      <div class="modal" id="book">
+        <%= simple_form_for([@lesson, @appointment]) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :length, collection: [20, 30, 45, 60, 90], required:true, autofocus: true %>
+          <%= f.input :date_time, required:true, autofocus: true %>
+
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+      </div>
+
   </div>
 
   <div class="col-xs-12 col-sm-6">
     <!-- photo's uploaded by user(teacher) -->
-    <p><%= @lesson.photo %></p>
+    <% if @lesson.photo? %>
+    <%= cl_image_tag @lesson.photo.path, width: 200, height: 300, crop: :fill %>
+    <% end %>
   </div>
 
 </div>

@@ -9,15 +9,31 @@
       <%= current_user.phone %>
       <%= current_user.email %>
 
-    <!-- info only for teachers -->
+      <!-- info only for teachers -->
       <%= current_user.company_name%>
       <%= current_user.bio %>
 
-      <%= link_to "Update profile", edit_profile_path %>
+      <button data-toggle="modal" data-target="#update">Update profile</button>
+
+      <div class="modal" id="update">
+        <%= link_to "Edit or remove account", edit_user_registration_path, class: "btn btn-primary" %>
+        <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
+        <div class="form-inputs">
+          <%= render "profile_form", f: f %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+        <% end %>
+      </div>
+
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <%= image_tag current_user.profile_pic %>
+      <% if current_user.photo? %>
+        <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
+      <% end %>
     </div>
 
   </div>

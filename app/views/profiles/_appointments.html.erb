@@ -11,9 +11,10 @@
 
 <% current_user.received_appointments.each do |appointment| %>
     <div class="col-xs-12 col-sm-6">
-      <%= appointment.date_time %>
-      <%= appointment.length %>
-      <%= appointment.total_price %>
-      <%= appointment.status %>
+      <p>Date and time: </p> <%= appointment.date_time %>
+      <p>Length: </p> <%= appointment.length %>
+      <p>Total price: </p> <%= appointment.total_price %>
+      <p>Status: </p> <%= appointment.status %>
     </div>
 <% end %>
+
