@@ -19,12 +19,6 @@
 
 
 <%= content_for(:after_js) do %>
-  $('new_subcategory').on('click', function(){
-    $('new_subcategory').removeClass('hidden');
-  });
-<% end %>
-
-<%= content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
       $('.new_subcategory').on('click', function(event){

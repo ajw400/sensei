@@ -12,6 +12,7 @@ class AppointmentsController < ApplicationController
     appt = Appointment.new(appointment_params)
     appt.user = current_user
     appt.lesson = Lesson.find(params[:lesson_id])
+    # appt.total_price = params[:length] * appt.lesson.hour_price
     appt.save!
     redirect_to profile_path
   end
