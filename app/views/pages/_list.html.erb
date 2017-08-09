@@ -1,16 +1,16 @@
-<div class="container">
-  <div class="row">
-    <% @lessons.each do |lesson| %>
-      <div class="card">
-        <%= lesson.title %>
-        <%= lesson.hour_price %>
-        <%= lesson.level %>
-        <%= "#{lesson.user.first_name} #{lesson.user.last_name}" %>
-        <% if lesson.subcategory %>
-          <%= lesson.subcategory.category.name%>
-          <%= lesson.subcategory.name %>
-        <% end %>
+
+<% @lessons.each do |lesson| %>
+<div class="col-sm-4 col-xs-6">
+  <a href="#" class="block">
+    <div class="feature boxed text-center imagebg" data-overlay="7">
+      <div class="background-image-holder">
+        <%= image_tag "yoga.jpg" %>
       </div>
-    <% end %>
-  </div>
+      <h4 class=""><%= lesson.title %></h4>
+      <h5 class=""><%= "#{lesson.user.first_name} #{lesson.user.last_name}" %> - <%= "#{lesson.subcategory.category.name}" %></h5>
+      <h3 class="">$<%= lesson.hour_price %></h3>
+      <h6><%= lesson.level %></h6>
+    </div>
+  </a>
 </div>
+<% end %>
