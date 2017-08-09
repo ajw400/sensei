@@ -13,6 +13,8 @@ class LessonsController < ApplicationController
   def update
     lesson = Lesson.find(params[:id])
     lesson.update(lesson_params)
+    cat = Category.find(params[:lesson][:category][:category])
+    subcat = Subcategory.find(params[:lesson][:subcategory])
     lesson.save!
     redirect_to profile_path
   end
@@ -30,6 +32,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:description, :title, :photo, :level, :hour_price)
+    params.require(:lesson).permit(:description, :title, :photo, :level, :hour_price, :subcategory, :category)
   end
 end

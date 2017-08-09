@@ -16,25 +16,10 @@
       <button data-toggle="modal" data-target="#update">Update profile</button>
 
       <div class="modal" id="update">
-        <p>test</p>
+        <%= link_to "Edit email, password:", edit_user_registration_path, class: "btn btn-primary" %>
         <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
         <div class="form-inputs">
-          <%= f.input :first_name, required: true, autofocus: true %>
-          <%= f.input :last_name, required: true, autofocus: true %>
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :phone, required: true, autofocus: true %>
-          <%= f.input :birthdate, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
-          <%= f.input :photo, as: :attachinary %>
-          <%= f.input_field :teacher, inline_label: true, label: false, as: :boolean, class: "teacher-toggle" %>
-          <%= f.input :bio, wrapper_html: { class: 'teacher hidden' } %>
-          <%= f.input :languages, wrapper_html: { class: 'teacher hidden' } %>
-          <%= f.input :company_name, wrapper_html: { class: 'teacher hidden' } %>
-
-          <%= f.input :address, wrapper_html: { class: 'teacher hidden' } %>
-          <%= f.input :zipcode, wrapper_html: { class: 'teacher hidden' } %>
-          <%= f.input :city, wrapper_html: { class: 'teacher hidden' } %>
+          <%= render "profile_form", f: f %>
         </div>
 
         <div class="form-actions">
@@ -47,7 +32,7 @@
 
     <div class="col-xs-12 col-sm-6">
       <% if current_user.photo? %>
-      <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
+        <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
     </div>
 
