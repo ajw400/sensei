@@ -1,23 +1,43 @@
-
-
+<section class="container"><h3>Appointments</h3>
 <div class="container">
-<div class="section"><h3>Appointments</h3></div>
 <% current_user.appointments.each do |appointment| %>
-    <div class="section">
-      <p>Date and time:  <%= appointment.date_time %></p>
-      <p>Length: <%= appointment.length %></p>
-      <p>Total price: <%= appointment.total_price %></p>
-      <p>Status:  <%= appointment.status %></p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <ul>
+        <li>Date and time:  <%= appointment.date_time %></li>
+        <li class="li">Length: <%= appointment.length %></li>
+        <li class="li">Total price: <%= appointment.total_price %></li>
+        <li class="li">Status:  <%= appointment.status %></li>
+      </ul>
     </div>
-<% end %>
-
-<% current_user.received_appointments.each do |appointment| %>
-    <div class="section">
-      <p>Date and time:  <%= appointment.date_time %></p>
-      <p>Length: <%= appointment.length %></p>
-      <p>Total price: <%= appointment.total_price %></p>
-      <p>Status:  <%= appointment.status %></p>
+    <div class="col-xs-12 col-sm-6">
+      <%= link_to "Cancel", cancel_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
     </div>
+  </div>
 <% end %>
-
 </div>
+
+<section class="container"><h3>Appointments</h3>
+<div class="container">
+<% current_user.received_appointments.each do |appointment| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <ul>
+        <li>Date and time:  <%= appointment.date_time %></li>
+        <li class="li">Length: <%= appointment.length %></li>
+        <li class="li">Total price: <%= appointment.total_price %></li>
+        <li class="li">Status:  <%= appointment.status %></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <% unless appointment.status == "confirmed" %>
+        <%= link_to "Confirm", confirm_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
+        <%= link_to "Deny", deny_appointment_path(appointment), class: "btn btn--primary" %>
+      <% end %>
+      <%= link_to "Cancel", cancel_appointment_path(appointment), class: "btn btn--primary" %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
