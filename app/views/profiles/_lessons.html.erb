@@ -1,12 +1,13 @@
 <section class="container">
 <div class="row">
-
+<h3>Lessons offered</h3>
 <% current_user.lessons.each do |lesson| %>
     <div class="col-xs-12 col-sm-6">
       <%= lesson.title %>
       <%= lesson.description %>
       <%= lesson.hour_price %>
       <%= lesson.level %>
+      <br>
       <button data-toggle="modal" class="btn btn-primary" data-target="#update_lesson">Update lesson</button>
       <div class="modal" id="update_lesson">
 
@@ -30,7 +31,7 @@
     </div>
   <% end %>
   <div class="col-xs-12 col-sm-6">
-
+    <br>
     <button data-toggle="modal" class="btn btn-primary" data-target="#add_lesson">Add lesson</button>
 
     <div class="modal" id="add_lesson">
