@@ -4,7 +4,7 @@ class Lesson < ApplicationRecord
   has_many :appointments
   has_attachment :photo
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :geocode
 
   def address
     "#{self.user.address} #{self.user.zipcode} #{self.user.city}"
