@@ -4,5 +4,6 @@ class PagesController < ApplicationController
     @lessons = Lesson.all
     @lesson = Lesson.new
     @subcategory = Subcategory.new
+    @categories = Category.all
   end
 end

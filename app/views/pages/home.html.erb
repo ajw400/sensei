@@ -16,68 +16,11 @@
     </div>
   </div>
 </section>
+
+
 <section class="unpad">
   <div class="row--gapless">
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "music.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Music</h4>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "dance.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Dance</h4>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "driving.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Driving</h4>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "sports.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Sports</h4>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "yoga.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Yoga</h4>
-        </div>
-      </a>
-    </div>
-    <div class="col-sm-2 col-xs-6">
-      <a href="#" class="block">
-        <div class="feature boxed text-center imagebg" data-overlay="8">
-          <div class="background-image-holder">
-            <%= image_tag "language.jpg" %>
-          </div>
-          <h4 class="pos-vertical-center">Language</h4>
-        </div>
-      </a>
-    </div>
+    <%= render "categories" %>
   </div>
 </section>
 <section>
@@ -87,7 +30,7 @@
         <div class="masonry">
           <div class="row">
             <div class="masonry__container">
-              <%= render 'list' %>
+              <%= render 'shared/list' %>
             </div>
           </div>
         </div>
