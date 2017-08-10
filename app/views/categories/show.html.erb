@@ -1,2 +1,31 @@
 <% title @category.name %>
-<%= render "/shared/list" %>
+<section class="cover height-30 imagebg parallax" data-overlay="8">
+  <div class="background-image-holder">
+    <%= image_tag @category.photo || "background/home.jpg" %>
+  </div>
+  <div class="container pos-vertical-center">
+    <div class="row">
+      <div class="col-sm-9 col-md-7">
+        <h1>
+          <%= @category.name %>
+        </h1>
+        <div class="row">
+          <% @category.subcategories.each do |subcat| %>
+            <span class="btn bg--dark"><%= subcat.name %></span>
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+
+
+    <div class="container">
+    <div class="row">
+    <%= render 'shared/list' %>
+    </div>
+  </div>
+
+</section>
