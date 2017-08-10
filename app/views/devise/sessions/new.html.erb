@@ -21,12 +21,17 @@
           </div>
         </form>
         <hr>
-        <a class="btn block btn--icon bg--facebook type--uppercase" href="#">
+
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+
+        <div class="btn block btn--icon bg--facebook type--uppercase" href="#">
           <span class="btn__text">
             <i class="socicon-facebook"></i>
             Login with Facebook
           </span>
-        </a>
+        </div>
+
+      <% end %>
         <%= render "devise/shared/links" %>
       </div>
     </div>
