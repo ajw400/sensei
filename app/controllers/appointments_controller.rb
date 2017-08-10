@@ -3,14 +3,17 @@ class AppointmentsController < ApplicationController
 
   def confirm
     @lesson.update!(status: "confirmed")
+    redirect_to profile_path
   end
 
   def deny
     @lesson.update!(status: "denied")
+    redirect_to profile_path
   end
 
   def cancel
     @lesson.update!(status: "cancelled")
+    redirect_to profile_path
   end
 
   def create
