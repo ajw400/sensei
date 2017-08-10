@@ -213,11 +213,49 @@ puts "Seeding database"
 
 
 # categories
-["Music", "Dance", "Driving", "Sports", "Yoga"].each do |cat|
-  Category.create!(
-    name: cat
+
+  category = Category.new(
+    name: "Music"
   )
-end
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/music.jpg")
+  category.save!
+
+   category = Category.new(
+    name: "Dance"
+  )
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/dance.jpg")
+  category.save!
+
+   category = Category.new(
+    name: "Driving"
+  )
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/driving.jpg")
+  category.save!
+
+   category = Category.new(
+    name: "Sports"
+  )
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/sports.jpg")
+  category.save!
+
+   category = Category.new(
+    name: "Yoga"
+  )
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/yoga.jpg")
+  category.save!
+
+   category = Category.new(
+    name: "Languages"
+  )
+  category.save!
+  category.photo = Rails.root.join("app/assets/images/language.jpg")
+  category.save!
+
 
 counter = 0
 titles = ["Learn playing Piano fast", "Master the Piano", "Love the Piano in a few lessons", "Discover the Piano", " Dive into playing Piano", "Improve your Piano skills", "Piano skill learn it fast", "Enhance your talent in playing Piano", "Want to learn Piano?"]
