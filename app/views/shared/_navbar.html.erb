@@ -22,9 +22,12 @@
           <% if current_user.facebook_picture_url? %>
             <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
             <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-            <% avatar_url = current_user.profile_pic || "http://placehold.it/30x30" %>
-            <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% elsif current_user.photo? %>
+            <% avatar_url = "http://placehold.it/30x30" %>
+            <%= cl_image_tag current_user.photo.path, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <% else %>
+              <% avatar_url = "http://placehold.it/30x30" %>
+              <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
