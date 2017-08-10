@@ -4,7 +4,7 @@
 <%= link_to lesson_path(lesson) do %>
     <div class="feature boxed text-center imagebg" data-overlay="7">
       <div class="background-image-holder">
-        <%= image_tag "yoga.jpg" %>
+        <%= image_tag lesson.photo || "yoga.jpg" %>
       </div>
       <h4 class=""><%= lesson.title %></h4>
       <h5 class=""><%= "#{lesson.user.first_name} #{lesson.user.last_name}" %> - <%= "#{lesson.subcategory.category.name}" %></h5>
