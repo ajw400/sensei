@@ -7,7 +7,7 @@
         <% if lesson.photo %>
            <%= cl_image_tag lesson.photo.path %>
         <% elsif lesson.user.photo %>
-           <%= cl_image_tag lesson.photo.path %>
+           <%= cl_image_tag lesson.user.photo.path %>
         <% end %>
       </div>
       <h4 class=""><%= lesson.title %></h4>

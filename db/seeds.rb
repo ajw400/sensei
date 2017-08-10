@@ -15,82 +15,7 @@ User.destroy_all
 
 puts "Seeding database"
 
-# # teachers
-# 10.times do
-#   User.create!(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     city: Faker::Address.city,
-#     address: Faker::Address.street_address,
-#     zipcode: Faker::Address.zip_code,
-#     phone: "63959496929",
-#     password: '123456789',
-#     # password_confirmation: '123456789',
-#     company_name: [Faker::Company.name, ""].sample,
-#     bio: Faker::Lorem.paragraph,
-#     birthdate: Faker::Date.birthday(18, 65),
-#     languages: "English and Dutch",
-#     teacher: true
-#   )
-# end
-
-# # students
-# 20.times do
-#   User.create!(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     phone: "63959496929",
-#     password: '123456789',
-#     birthdate: Faker::Date.birthday(18, 65)
-#   )
-# end
-
-# # categories
-# ["music", "dance", "driving", "sports", "yoga"].each do |cat|
-#   Category.create!(
-#     name: cat
-#   )
-# end
-
-# # lessons, subcategories, appointments
-# User.all.each do |user|
-#   if user.teacher
-#     cat = Category.all.sample
-#     subcat = Subcategory.new(name: Faker::Lorem.word)
-#     subcat.category = cat
-#     subcat.save!
-#     lesson = Lesson.new(
-#       description: Faker::Lorem.paragraph,
-#       hour_price: 40,
-#       subcategory: subcat,
-#       level: ["beginner, intermediate, advanced"].sample,
-#       title: Faker::Lorem.sentence
-#     )
-#     lesson.user = user
-#     lesson.save!
-#   elsif Lesson.first
-#     lesson = Lesson.all.sample
-#     length = [30, 45, 60].sample
-#     appt = Appointment.new(
-#       lesson: lesson,
-#       length: length,
-#       total_price: lesson.hour_price * length / 60,
-#       status: "unconfirmed"
-#     )
-#     appt.user = user
-#     appt.save!
-#   end
-# end
-
-# puts "Finished!"
-
-
-# -------------------------------------------------------------------------
-
-# teachers
-  User.create!(
+  user = User.new(
     first_name: "Andrew",
     last_name: "Wright",
     email: "andrewwright@gmail.com",
@@ -106,6 +31,10 @@ puts "Seeding database"
     languages: "English and Dutch",
     teacher: true
   )
+
+  user.save!
+  user.photo = Rails.root.join("app/assets/images/andrew_teacher.jpg")
+  user.save!
 
 
   user = User.new(
@@ -125,6 +54,8 @@ puts "Seeding database"
     teacher: true
   )
   user.save!
+  user.photo = Rails.root.join("app/assets/images/male_1.jpg")
+  user.save!
 
     user = User.new(
     first_name: "Anton",
@@ -142,6 +73,8 @@ puts "Seeding database"
     languages: "English and Dutch",
     teacher: true
   )
+  user.save!
+  user.photo = Rails.root.join("app/assets/images/male_2.jpg")
   user.save!
 
         user = User.new(
@@ -161,6 +94,8 @@ puts "Seeding database"
     teacher: true
   )
   user.save!
+  user.photo = Rails.root.join("app/assets/images/woman_1.jpg")
+  user.save!
 
      user = User.new(
     first_name: "Jack",
@@ -178,6 +113,8 @@ puts "Seeding database"
     languages: "English and Dutch",
     teacher: true
   )
+  user.save!
+  user.photo = Rails.root.join("app/assets/images/male_3.jpg")
   user.save!
 
      user = User.new(
@@ -197,6 +134,8 @@ puts "Seeding database"
     teacher: true
   )
   user.save!
+  user.photo = Rails.root.join("app/assets/images/woman_2.jpg")
+  user.save!
 
      user = User.new(
     first_name: "Sjuul",
@@ -214,6 +153,8 @@ puts "Seeding database"
     languages: "English and Dutch",
     teacher: true
   )
+  user.save!
+  user.photo = Rails.root.join("app/assets/images/woman_3.jpg")
   user.save!
 
       user = User.new(
@@ -233,6 +174,8 @@ puts "Seeding database"
     teacher: true
   )
   user.save!
+  user.photo = Rails.root.join("app/assets/images/woman_4.jpg")
+  user.save!
 
         user = User.new(
     first_name: "Daan",
@@ -250,8 +193,8 @@ puts "Seeding database"
     languages: "English and Dutch",
     teacher: true
   )
-  user.save!
-  # user.photo = "teacher_male_1.jpg"
+ user.save!
+  user.photo = Rails.root.join("app/assets/images/male_4.jpg")
   user.save!
 
 # student
