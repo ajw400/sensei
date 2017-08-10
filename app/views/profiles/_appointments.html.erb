@@ -36,6 +36,7 @@
       <% end %>
       <% unless appointment.status == "cancelled" || appointment.status == "denied" %>
       <%= link_to "Cancel", cancel_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
+      <% end %>
     </div>
   </div>
 <% end %>
