@@ -4,7 +4,7 @@
        <div class="block">
         <div class="feature boxed text-center imagebg" data-overlay="8">
           <div class="background-image-holder">
-            <%= image_tag category.photo || "music.jpg" %>
+            <%= cl_image_tag category.photo.path %>
           </div>
           <h4 class="pos-vertical-center"><%= category.name %></h4>
         </div>
