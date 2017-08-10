@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810125447) do
+ActiveRecord::Schema.define(version: 20170810145056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", id: :bigserial, force: :cascade do |t|
-    t.bigint   "user_id"
-    t.bigint   "lesson_id"
+  create_table "appointments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "lesson_id"
     t.integer  "length"
     t.datetime "date_time"
     t.string   "status"
@@ -43,18 +43,18 @@ ActiveRecord::Schema.define(version: 20170810125447) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "categories", id: :bigserial, force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "photo"
   end
 
-  create_table "lessons", id: :bigserial, force: :cascade do |t|
+  create_table "lessons", force: :cascade do |t|
     t.string   "description"
     t.integer  "hour_price"
-    t.bigint   "subcategory_id"
-    t.bigint   "user_id"
+    t.integer  "subcategory_id"
+    t.integer  "user_id"
     t.string   "level"
     t.string   "photo"
     t.string   "title"
@@ -66,15 +66,15 @@ ActiveRecord::Schema.define(version: 20170810125447) do
     t.index ["user_id"], name: "index_lessons_on_user_id", using: :btree
   end
 
-  create_table "subcategories", id: :bigserial, force: :cascade do |t|
+  create_table "subcategories", force: :cascade do |t|
     t.string   "name"
-    t.bigint   "category_id"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
   end
 
-  create_table "users", id: :bigserial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
