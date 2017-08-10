@@ -1,42 +1,92 @@
-<section class="container">
-  <!--  lessson info etc-->
-  <h1><%= @lesson.title %></h1>
-  <p>Description: <%= @lesson.description %></p>
-  <p>Price: <%= @lesson.hour_price %></p>
-  <p>Level: <%= @lesson.level %></p>
 
-  <!-- teacher information -->
-  <h3>Teacher Information</h3>
-  <p>Name: <%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></p>
-  <p>Languages spoken: <%= @lesson.user.languages %></p>
-  <p>Location: <%= @lesson.user.address %></p>
-  <p>    <%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %></p>
-  <p>Company name: <%= @lesson.user.company_name %></p>
-  <p>Bio: <%= @lesson.user.bio %></p>
+<section class="bg--secondary space--sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="boxed boxed--lg boxed--border">
+          <div class="text-block text-center">
+            <span class="h2"><%= @lesson.title %></span>
+            <% if @lesson.user.photo? %>
+            <%= cl_image_tag @lesson.user.photo.path, width: 600, crop: :fill %>
+            <% else %>
+            <%= image_tag "placeholder.jpg", class: "border--round", width: 900, crop: :fill %>
+            <% end %>
+          </div>
+          <div class="text-block clearfix text-center">
+            <ul class="row row--list">
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Name:</span>
+                <span class="h4"><%= "#{@lesson.user.first_name} #{@lesson.user.last_name}"%></span>
+              </li>
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Price:</span>
+                <span class="h4">$<%= @lesson.hour_price %>/hour</span>
+              </li>
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Level:</span>
+                <span class="h4"><%= @lesson.level %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="text-block clearfix text-center">
+            <ul class="row row--list">
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Languages spoken:</span>
+                <span class="h4"><%= @lesson.user.languages %></span>
+              </li>
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Company Name:</span>
+                <span class="h4"><%= @lesson.user.company_name %></span>
+              </li>
 
-  <!-- profile picture -->
-
-  <% if @lesson.user.photo? %>
-  <p><%= cl_image_tag @lesson.user.photo.path, width: 200, height: 300, crop: :fill %></p>
-  <% end %>
-
-  <button data-toggle="modal" class="btn btn--primary type--uppercase" data-target="#book">Book a lesson!</button>
-
-  <div class="modal" id="book">
-    <%= simple_form_for([@lesson, @appointment]) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :length, collection: [20, 30, 45, 60, 90], required:true, autofocus: true %>
-      <%= f.input :date_time, required:true, autofocus: true %>
-
+              <li class="col-sm-4">
+                <span class="type--fine-print block">Address:</span>
+                <span class="h4"><%= @lesson.user.address %></span>
+                <p class="type--italic type--fine-print">
+                  <%= "#{@lesson.user.city} #{@lesson.user.zipcode}" %>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="text-block clearfix text-center">
+            <ul class="row row--list">
+              <li class="col-sm-12">
+                <span class="type--fine-print block">Description:</span>
+                <%= @lesson.description %>
+              </li>
+            </ul>
+          </div>
+          <div class="text-block clearfix text-center">
+            <ul class="row row--list">
+              <li class="col-sm-12">
+                <span class="type--fine-print block">Bio:</span>
+                <%= @lesson.user.bio %>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn--primary type--uppercase" type="submit" data-toggle="modal" data-target="#book">Book a lesson!</button>
+        </div>
+      </div>
     </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
-    </div>
-    <% end %>
+<div class="modal" id="book">
+  <%= simple_form_for([@lesson, @appointment]) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :length, collection: [20, 30, 45, 60, 90], required:true, autofocus: true %>
+    <%= f.input :date_time, required:true, autofocus: true %>
+
   </div>
 
-</section>
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+  <% end %>
+</div>
+
 <!-- photo's uploaded by user(teacher) -->
 <% if @lesson.photo? %>
 <%= cl_image_tag @lesson.photo.path, width: 200, height: 300, crop: :fill %>
