@@ -5,7 +5,9 @@
         <div class="boxed boxed--lg boxed--border">
           <div class="text-block text-center">
             <% if current_user.photo? %>
-            <%= cl_image_tag current_user.photo.path, width: 1200, crop: :fill, class: "border--round" %>
+              <%= cl_image_tag current_user.photo.path, width: 1200, crop: :fill, class: "border--round" %>
+            <% elsif current_user.facebook_picture_url? %>
+              <%= image_tag current_user.facebook_picture_url, width: 1200, crop: :fill, class: "border--round" %>
             <% end %>
             <span class="h2"><%= "#{current_user.first_name} #{current_user.last_name}" %></span>
             <a href="#" data-toggle="modal" data-target="#update">Update Profile</a>
