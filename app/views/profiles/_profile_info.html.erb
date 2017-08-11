@@ -17,11 +17,14 @@
             <ul class="row row--list">
               <li class="col-sm-4">
                 <span class="type--fine-print block">Address:</span>
-                <%= "#{current_user.address}, #{current_user.city} #{current_user.zipcode}" %>
+                <span class="h4"><%= current_user.address %></span>
+                <p class="type--italic type--fine-print">
+                  <% "#{current_user.city} #{current_user.zipcode}" %>
+                </p>
               </li>
               <li class="col-sm-4">
                 <span class="type--fine-print block">Phone Number:</span>
-                <span><%= current_user.phone %></span>
+                <span class="h4"><%= current_user.phone %></span>
               </li>
               <li class="col-sm-4">
                 <span class="type--fine-print block">Email:</span>
@@ -33,15 +36,15 @@
             <ul class="row row--list">
               <li class="col-sm-4">
                 <span class="type--fine-print block">Language:</span>
-                <%= current_user.languages %>
+                <span class="h4"><%= current_user.languages %></span>
               </li>
               <li class="col-sm-4">
                 <span class="type--fine-print block">Birthdate:</span>
-                <span><%= current_user.birthdate %></span>
+                <span class="h4"><%= current_user.birthdate %></span>
               </li>
               <li class="col-sm-4">
                 <span class="type--fine-print block">Company Name:</span>
-                <span><%= current_user.company_name%></span>
+                <span class="h4"><%= current_user.company_name%></span>
               </li>
             </ul>
           </div>
@@ -78,14 +81,14 @@
 </section>
 <div class="modal fade container col-xs-12 col-sm-6 col-sm-offset-3" id="update">
   <section>
-  <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
-  <div class="form-inputs">
-    <%= render "profile_form", f: f %>
-  </div>
+    <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
+    <div class="form-inputs">
+      <%= render "profile_form", f: f %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update Profile", class: "btn btn--primary type--uppercase" %>
-  </div>
-  <% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update Profile", class: "btn btn--primary type--uppercase" %>
+    </div>
+    <% end %>
   </section>
 </div>
