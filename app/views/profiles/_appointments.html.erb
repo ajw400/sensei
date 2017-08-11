@@ -1,6 +1,7 @@
  <% current_user.appointments.each do |appointment| %>
  <div class="col-sm-6">
   <div class="feature boxed boxed--border">
+    Lesson with <a><%= appointment.lesson.user.first_name %></a>
     <h5><%= appointment.date_time.to_formatted_s(:short) %></h5>
     <ul>
       <li class="li">Length: <%= appointment.length %></li>
@@ -15,6 +16,7 @@
 <% current_user.received_appointments.each do |appointment| %>
 <div class="col-sm-6">
   <div class="feature boxed boxed--border">
+    Lesson with <a><%= appointment.user.first_name %></a>
     <h5><%= appointment.date_time.to_formatted_s(:short) %></h5>
     <ul>
       <li class="li">Length: <%= appointment.length %></li>
