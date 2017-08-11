@@ -1,40 +1,39 @@
 <% @lessons.each do |lesson| %>
-<div class="col-sm-4 col-xs-6">
-  <div class="feature feature-1">
-    <% if lesson.photo %>
-      <%= cl_image_tag lesson.photo.path %>
-      <% elsif lesson.user.photo %>
-      <%= cl_image_tag lesson.user.photo.path, width: 540, height: 393, crop: :thumb, gravity: :face %>
-      <% end %>
-    <div class="feature__body boxed boxed--border">
-      <h5>Built for teams</h5>
-      <p>
-        Ideal for large and small organisations
-      </p>
+<div class="col-sm-4 masonry__item">
+  <div class="card card-2 text-center mb--1">
+    <div class="card__top">
       <a href="#">
-        Learn More
+        <% if lesson.photo %>
+        <%= cl_image_tag lesson.photo.path %>
+        <% elsif lesson.user.photo %>
+        <%= cl_image_tag lesson.user.photo.path, width: 360, height: 220, crop: :thumb, gravity: :face %>
+        <% end %>
       </a>
     </div>
-  </div>
-</div>
-<% end %>
-
-<% @lessons.each do |lesson| %>
-<div class="col-sm-4 col-xs-6">
-  <%= link_to lesson_path(lesson) do %>
-  <div class="feature boxed text-center imagebg" data-overlay="7">
-    <div class="background-image-holder">
-      <% if lesson.photo %>
-      <%= cl_image_tag lesson.photo.path %>
-      <% elsif lesson.user.photo %>
-      <%= cl_image_tag lesson.user.photo.path %>
+    <div class="card__body">
+      <span class="h4"><%= lesson.title %></span>
+      <%= link_to lesson_path(lesson) do %>
+      <button class="btn btn--primary type--uppercase" type="submit">Learn More</button>
       <% end %>
     </div>
-    <h4 class=""><%= lesson.title %></h4>
-    <h5 class=""><%= "#{lesson.user.first_name} #{lesson.user.last_name}" %> - <%= "#{lesson.subcategory.category.name}" %></h5>
-    <h3 class="">$<%= lesson.hour_price %></h3>
-    <h6><%= lesson.level %></h6>
+    <div class="card__bottom text-center">
+      <div class="card__action">
+        <span class="type--fade">Name</span>
+        <span class="h5"><%= "#{lesson.user.first_name} #{lesson.user.last_name}" %></span>
+      </div>
+      <div class="card__action">
+        <span class="type--fade">Category</span>
+        <span class="h5"><%= "#{lesson.subcategory.category.name}" %></span>
+      </div>
+      <div class="card__action">
+        <span class="type--fade">Pice</span>
+        <span class="h5">$<%= lesson.hour_price %>/hour</span>
+      </div>
+      <div class="card__action">
+        <span class="type--fade">Level</span>
+        <span class="h5"><%= lesson.level %></span>
+      </div>
+    </div>
   </div>
-  <% end %>
 </div>
 <% end %>
