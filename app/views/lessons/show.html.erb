@@ -7,9 +7,9 @@
           <div class="text-block text-center">
             <span class="h2"><%= @lesson.title %></span>
             <% if @lesson.photo? %>
-              <%= cl_image_tag @lesson.photo.path, class: "border--round", width: 900, crop: :fill %>
+              <%= cl_image_tag @lesson.photo.path, width: 600, crop: :fill %>
             <% elsif @lesson.user.photo? %>
-            <%= cl_image_tag @lesson.user.photo.path, class: "border--round", width: 900, crop: :fill %>
+            <%= cl_image_tag @lesson.user.photo.path, width: 600, crop: :fill %>
             <% else %>
             <%= image_tag "placeholder.jpg", class: "border--round", width: 900, crop: :fill %>
             <% end %>
@@ -99,6 +99,6 @@
   </section>
 </div>
 
-<
+
 
 
