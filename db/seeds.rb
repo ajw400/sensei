@@ -23,7 +23,7 @@ puts "Seeding database"
     phone: "0639594969",
     password: '123456789',
     birthdate: '28-05-1991',
-    photo: Rails.root.join("app/assets/images/pim_user.jpg")
+    photo: Rails.root.join("app/assets/images/pim_user2.jpeg")
   )
     user.save!
 
@@ -213,8 +213,8 @@ counter = 0
 
 
 #category -> subcategory -> user -> lessons + title -> appointments
-categories_attributes.each do |categories_attribute|
-  Category.create!(categories_attribute)
+categories_attributes.each do |category_attributes|
+  Category.create!(category_attributes)
 end
 
 Category.all.each do |cat|
@@ -229,14 +229,13 @@ end
 users_attributes.each do |user_attribute|
     #user
   user = User.create!(user_attribute)
-  # lessons_attributes.each do |lesson_attribute|
     #lessons
 
       lesson = Lesson.create!({
         description: "Want to learn playing the piano fast? You have found the right teacher! I have taught multiple students and all of them could play multiple pieces after just one lesson. Together we will explore your basic skill in playing the piano and then we decide which songs are suitable for you.",
         hour_price: [90, 85, 80, 75, 70, 65].sample,
         user: user,
-        subcategory: Subcategory.all.sample,
+        subcategory: Category.find_by_name("Music").subcategories.sample,
         level: ["Beginner", "Intermediate", "Advanced"].sample,
     #title
         title: titles[counter]
