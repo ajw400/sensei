@@ -1,7 +1,7 @@
 <% title @category.name %>
 <section class="cover height-30 imagebg parallax" data-overlay="8">
   <div class="background-image-holder">
-    <%= image_tag @category.photo || "background/home.jpg" %>
+    <%= cl_image_tag @category.photo.path %>
   </div>
   <div class="container pos-vertical-center">
     <div class="row">
@@ -22,7 +22,7 @@
 <section>
   <div class="container">
     <div class="row">
-      <%= render 'shared/list' %>
+      <%= render 'shared/list', lessons: @lessons %>
     </div>
   </div>
 </section>
