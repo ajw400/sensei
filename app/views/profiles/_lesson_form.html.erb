@@ -1,13 +1,35 @@
-<%= f.input :title, required:true, autofocus: true %>
-<%= f.input :description, required: true, autofocus: true %>
-<%= f.input :hour_price, required: true, autofocus: true %>
+<div class="row">
+  <div class="col-sm-12">
+    <%= f.input :title, label: false, placeholder: "Lesson headline", required: true %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :description, label: false, placeholder: "Type a description here", required: true %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input :hour_price, label: false, placeholder: "Hour price", required: true %>
+  </div>
+  <div class="col-sm-6">
+    <%=  f.simple_fields_for :category do |y| %>
+      <%= y.input :category, collection: Category.all, selected: Category.first, required: true, label: false, autofocus: true %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.association :subcategory, placeholder: "subcategory", label: false, collection: Subcategory.all %>
+  </div>
+  <div class="col-sm-6">
+     <div class="btn btn-primary new_subcategory">Add new subcategory</div>
+  </div>
+  <div class="col-sm-6 sub hidden">
+     <%= f.input :subcategory, label: false, required: true, autofocus: true %>
+  </div>
+  <div class="col-sm-12">
+      <%= f.input :level, label: false, placeholder: "level", required: true, autofocus: true %>
+  </div>
+  <div class="col-sm-12">
+    <%= f.input :photo, label: false, as: :attachinary %>
+  </div>
+</div>
 
-<%=  f.simple_fields_for :category do |y| %>
-  <%= y.input :category, collection: Category.all, required: true, autofocus: true %>
-<% end %>
 
-<%= f.association :subcategory, collection: Subcategory.all %>
-<div class="btn btn-primary new_subcategory">Add new subcategory</div>
-<%= f.input :subcategory, required: true, autofocus: true,  wrapper_html: { class: 'sub hidden' }%>
-<%= f.input :level, required: true, autofocus: true %>
-<%= f.input :photo, as: :attachinary %>
+
+
