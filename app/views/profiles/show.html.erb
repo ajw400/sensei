@@ -3,12 +3,6 @@
  -->
 <%= render 'profile_info' %>
 
-<!--  lessons (show plus link to add new, only for teachers)
- -->
-<% if current_user.teacher %>
-  <%= render 'lessons' %>
-<% end %>
-
 <%= content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
