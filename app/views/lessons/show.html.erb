@@ -68,6 +68,7 @@
           </div>
           <button class="btn btn--primary type--uppercase" type="submit" data-toggle="modal" data-target="#book">Book a lesson!</button>
         </div>
+         <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&key=#AIzaSyC4auiFm2TEXPlsKPD1JvHBApze9Wbuu6M&markers=color:red|#{@lesson.address}" %>
       </div>
     </div>
     <!--end of row-->
@@ -75,24 +76,29 @@
   <!--end of container-->
 </section>
 
-<div class="modal" id="book">
+<div class="modal fade container col-xs-12 col-sm-6 col-sm-offset-3" id="book">
+  <section>
   <%= simple_form_for([@lesson, @appointment]) do |f| %>
   <div class="form-inputs">
-    <%= f.input :length, collection: [20, 30, 45, 60, 90], required:true, autofocus: true %>
-    <%= f.input :date_time, required:true, autofocus: true %>
+
+         <div class="row">
+            <div class="col-sm-4">
+              <%= f.input :length, collection: [20, 30, 45, 60, 90], selected: 20, required:true, autofocus: true, label_html: { class: "form_label_white" } %>
+              </div>
+            <div class="col-sm-8">
+                <%= f.input :date_time, label: "Date and time", required:true, autofocus: true, label_html: { class: "form_label_white"} %>
+            </div>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Reserve!", class: "btn--primary type--uppercase" %>
   </div>
   <% end %>
 </div>
-
-<!-- photo's uploaded by user(teacher) -->
-<% if @lesson.photo? %>
-<%= cl_image_tag @lesson.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+  </section>
 </div>
+
+<
 
 

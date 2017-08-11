@@ -1,19 +1,50 @@
-<%= f.input :first_name, required: true, autofocus: true %>
-<%= f.input :last_name, required: true, autofocus: true %>
-<%= f.input :email, required: true, autofocus: true %>
-<%= f.input :phone, required: true, autofocus: true %>
-<%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12, discard_day: true,
-                              order: [:month, :year] %>
+         <div class="row">
+            <div class="col-sm-6">
+              <%= f.input :first_name, label: false, placeholder: "First Name", required: true %>
+            </div>
+            <div class="col-sm-6">
+              <%= f.input :last_name, label: false, placeholder: "Last Name", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :email, label: false, placeholder: "Email", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :phone, label: false, placeholder: "Phone", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :birthdate, label_html: { class: "form_label_white" }, wrapper_html: { class: "text-center" } %>
+            </div>
+            <div class="col-sm-6">
+               <%= f.input :password, label: false, placeholder: "Password", required: true %>
+            </div>
+            <div class="col-sm-6">
+               <%= f.input :password_confirmation, label: false, placeholder: "Confirm your Password", required: true %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :photo, as: :attachinary, label: false %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input_field :teacher, inline_label: true, label: false, as: :boolean, wrapper_html: { class: "teacher-toggle form_label_white" } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :bio, label: false, placeholder: "Bio", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :languages, label: false, placeholder: "Languages", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :address, label: false, placeholder: "Address", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :zipcode, label: false, placeholder: "Zipcode", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :company_name, label: false, placeholder: "Company Name", wrapper_html: { class: 'teacher hidden' } %>
+            </div>
+            <div class="col-sm-12">
+              <%= f.input :city, label: false, placeholder: "City", wrapper_html: { class: 'teacher hiddenl' } %>
+            </div>
+          </div>
 
-<%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-<%= f.input :password_confirmation, required: true %>
-<%= f.input :photo, as: :attachinary %>
-<%= f.input_field :teacher, inline_label: true, label: false, as: :boolean, class: "teacher-toggle" %>
-<%= f.input :bio, wrapper_html: { class: 'teacher hidden' } %>
-<%= f.input :languages, wrapper_html: { class: 'teacher hidden' } %>
-<%= f.input :company_name, wrapper_html: { class: 'teacher hidden' } %>
 
-<%= f.input :address, wrapper_html: { class: 'teacher hidden' } %>
-<%= f.input :zipcode, wrapper_html: { class: 'teacher hidden' } %>
-<%= f.input :city, wrapper_html: { class: 'teacher hidden' } %>
+
