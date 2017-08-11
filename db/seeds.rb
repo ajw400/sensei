@@ -242,16 +242,18 @@ users_attributes.each do |user_attribute|
       })
       counter += 1
     #appointments
-      (1..3).to_a.sample.times do
-        appt = Appointment.new({
-          lesson: lesson,
-          user: user,
-          length: [20, 30, 45, 60, 90].sample,
-          status: %w[unconfirmed, confirmed, canceled, denied].sample
-         })
-        appt.total_price = lesson.hour_price * appt.length / 60
-        appt.save!
-      end
+      # (1..3).to_a.sample.times do
+
+      #   appt = Appointment.new({
+      #     lesson: lesson,
+      #     user: user,
+      #     length: [20, 30, 45, 60, 90].sample,
+      #     status: %w[unconfirmed, confirmed, canceled, denied].sample,
+      #     date_time: "2017-10-11 13:24:00".to_datetime
+      #    })
+      #   appt.total_price = lesson.hour_price * appt.length / 60
+      #   appt.save!
+      # end
 end
 
 puts "Finished!"
