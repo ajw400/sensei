@@ -1,54 +1,51 @@
-<section class="container">
-<div class="row">
-<h3>Lessons offered</h3>
 <% current_user.lessons.each do |lesson| %>
-    <div class="col-xs-12 col-sm-6">
-      <%= lesson.title %>
-      <%= lesson.description %>
-      <%= lesson.hour_price %>
-      <%= lesson.level %>
-      <br>
-      <button data-toggle="modal" class="btn btn-primary" data-target="#update_lesson">Update lesson</button>
-      <div class="modal" id="update_lesson">
-
-        <%= simple_form_for(lesson, url: lesson_path(lesson), method: :patch) do |f| %>
-        <div class="form-inputs">
-          <%= render 'lesson_form', f: f %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Update" %>
-        </div>
-        <% end %>
-
-      </div>
+<div class="boxed boxed--lg boxed--border">
+  <div class="text-block">
+    <div class="heading-block">
+      <h4>Lessons offered</h4>
     </div>
-    <div class="col-xs-12 col-sm-6">
+  </div>
+  <div class="text-block clearfix text-center">
+    <% if lesson.photo? %>
+    <%= cl_image_tag lesson.photo.path, width: 1200, crop: :fill %>
+    <% end %>
+    <ul class="row row--list">
+      <li class="col-sm-4">
+        <span class="type--fine-print block">Title:</span>
+        <span class="h4"><%= lesson.title %></span>
+      </li>
+      <li class="col-sm-4">
+        <span class="type--fine-print block">Price:</span>
+        <span class="h4">$<%= lesson.hour_price %>/hour</span>
+      </li>
+      <li class="col-sm-4">
+        <span class="type--fine-print block">Level:</span>
+        <span class="h4"><%= lesson.level %></span>
+      </li>
+      <li class="col-sm-12">
+        <span class="type--fine-print block">Description:</span>
+        <%= lesson.description %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn--primary type--uppercase" type="submit" data-toggle="modal" data-target="#update_lesson">Update lesson</button>
+  </div>
+  <div class="col-sm-6">
+    <button class="btn btn--primary type--uppercase" type="submit" data-toggle="modal" data-target="#add_lesson">Add lesson</button>
+  </div>
+</div>
+<% end %>
 
-          <% if lesson.photo? %>
-            <%= cl_image_tag lesson.photo.path, width: 200, height: 300, crop: :fill %>
-          <% end %>
-    </div>
-  <% end %>
-  <div class="col-xs-12 col-sm-6">
-    <br>
-    <button data-toggle="modal" class="btn btn-primary" data-target="#add_lesson">Add lesson</button>
-
-    <div class="modal" id="add_lesson">
-        <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
-          <div class="form-inputs">
-            <%= render 'lesson_form', f: f %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Add" %>
-          </div>
-        <% end %>
-    </div>
-
+<div class="modal" id="add_lesson">
+  <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
+  <div class="form-inputs">
+    <%= render 'lesson_form', f: f %>
   </div>
 
+  <div class="form-actions">
+    <%= f.button :submit, "Add" %>
+  </div>
+  <% end %>
 </div>
-
-</section>
 

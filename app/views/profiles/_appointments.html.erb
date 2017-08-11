@@ -9,32 +9,27 @@
       <%= link_to "Cancel Appointment", cancel_appointment_path(appointment), method: :patch %>
     </ul>
   </div>
-  <!--end feature-->
 </div>
 <% end %>
 
-<div class="container">
-  <% current_user.received_appointments.each do |appointment| %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6">
-      <ul>
-        <li>Date and time:  <%= appointment.date_time %></li>
-        <li class="li">Length: <%= appointment.length %></li>
-        <li class="li">Total price: <%= appointment.total_price %></li>
-        <li class="li">Status:  <%= appointment.status %></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-6">
+<% current_user.received_appointments.each do |appointment| %>
+<div class="col-sm-6">
+  <div class="feature boxed boxed--border">
+    <h5><%= appointment.date_time %></h5>
+    <ul>
+      <li class="li">Length: <%= appointment.length %></li>
+      <li class="li">Total price: <%= appointment.total_price %></li>
+      <li class="li">Status:  <%= appointment.status %></li>
       <% unless appointment.status == "confirmed" || appointment.status == "denied" %>
-      <%= link_to "Confirm", confirm_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
-      <%= link_to "Deny", deny_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
+      <%= link_to "Confirm", confirm_appointment_path(appointment), method: :patch %> |
+      <%= link_to "Deny", deny_appointment_path(appointment), method: :patch %>
       <% end %>
-      <% unless appointment.status == "cancelled" || appointment.status == "denied" %>
-      <%= link_to "Cancel", cancel_appointment_path(appointment), method: :patch, class: "btn btn--primary" %>
+      <% unless appointment.status == "cancelled" || appointment.status == "denied" %> |
+      <%= link_to "Cancel", cancel_appointment_path(appointment), method: :patch %>
       <% end %>
-    </div>
+    </ul>
   </div>
-  <% end %>
 </div>
+<% end %>
 
 
