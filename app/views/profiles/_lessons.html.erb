@@ -37,15 +37,17 @@
 </div>
 <% end %>
 
-<div class="modal" id="add_lesson">
-  <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
-  <div class="form-inputs">
-    <%= render 'lesson_form', f: f %>
-  </div>
+<div class="modal fade container col-xs-12 col-sm-6 col-sm-offset-3" id="add_lesson">
+  <section>
+    <%= simple_form_for(@lesson, url: lessons_path, method: :post) do |f| %>
+    <div class="form-inputs">
+      <%= render 'lesson_form', f: f %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Add" %>
-  </div>
-  <% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Add" %>
+    </div>
+    <% end %>
+  </section>
 </div>
 

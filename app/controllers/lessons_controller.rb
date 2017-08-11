@@ -5,6 +5,13 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @appointment = Appointment.new
+
+    @hash = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
+      marker.lat lesson.latitude
+      marker.lng lesson.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { lesson: lesson })
+    end
+
     @lesson_coordinates = { lat: @lesson.latitude, lng: @lesson.longitude }
   end
 

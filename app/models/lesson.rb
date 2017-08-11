@@ -7,6 +7,6 @@ class Lesson < ApplicationRecord
   after_validation :geocode
 
   def address
-    "#{self.user.address} #{self.user.zipcode} #{self.user.city}"
+    "#{self.user.address} #{self.user.city}"
   end
 end
