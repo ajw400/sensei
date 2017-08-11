@@ -15,7 +15,44 @@ User.destroy_all
 
 puts "Seeding database"
 
+# student
   user = User.new(
+    first_name: "Pim",
+    last_name: "Hulskorte",
+    email: "pimhulskorte@gmail.com",
+    phone: "0639594969",
+    password: '123456789',
+    birthdate: '28-05-1991',
+    photo: Rails.root.join("app/assets/images/pim_user.jpg")
+  )
+    user.save!
+
+
+#catergories
+categories_attributes = [
+  {name: "Music",
+    photo: Rails.root.join("app/assets/images/music.jpg")
+    },
+  {name: "Dance",
+    photo: Rails.root.join("app/assets/images/dance.jpg")
+    },
+  {name: "Driving",
+    photo: Rails.root.join("app/assets/images/driving.jpg")
+    },
+  {name: "Sports",
+    photo: Rails.root.join("app/assets/images/sports.jpg")
+    },
+  {name: "Yoga",
+    photo: Rails.root.join("app/assets/images/yoga.jpg")
+    },
+  {name: "Languages",
+    photo: Rails.root.join("app/assets/images/language.jpg")
+}]
+
+
+#teachers
+users_attributes = [
+  {
     first_name: "Andrew",
     last_name: "Wright",
     email: "andrewwright@gmail.com",
@@ -29,15 +66,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/andrew_teacher.jpg")
-  user.save!
-
-
-  user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/andrew_teacher.jpg")
+  },
+  {
     first_name: "Martin",
     last_name: "Socorsky",
     email: "martinsocorsky@gmail.com",
@@ -51,13 +83,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/male_1.jpg")
-  user.save!
-
-    user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/male_1.jpg")
+  },
+  {
     first_name: "Anton",
     last_name: "Waal",
     email: "antonwaal@gmail.com",
@@ -71,13 +100,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/male_2.jpg")
-  user.save!
-
-        user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/male_2.jpg")
+  },
+  {
     first_name: "Jessica",
     last_name: "Vos",
     email: "jessicavos@gmail.com",
@@ -91,13 +117,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/woman_1.jpg")
-  user.save!
-
-     user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/woman_1.jpg")
+  },
+  {
     first_name: "Jack",
     last_name: "Deloris",
     email: "jackdeloris@gmail.com",
@@ -111,13 +134,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/male_3.jpg")
-  user.save!
-
-     user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/male_3.jpg")
+  },
+  {
     first_name: "Marion",
     last_name: "Vadita",
     email: "marionvadita@gmail.com",
@@ -131,13 +151,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/woman_2.jpg")
-  user.save!
-
-     user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/woman_2.jpg")
+  },
+  {
     first_name: "Sjuul",
     last_name: "Verbieven",
     email: "sjuulverbieven@gmail.com",
@@ -151,13 +168,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/woman_3.jpg")
-  user.save!
-
-      user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/woman_3.jpg")
+  },
+  {
     first_name: "Barbara",
     last_name: "Kanton",
     email: "barbarakanton@gmail.com",
@@ -171,13 +185,10 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
-  user.save!
-  user.photo = Rails.root.join("app/assets/images/woman_4.jpg")
-  user.save!
-
-        user = User.new(
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/woman_4.jpg")
+  },
+  {
     first_name: "Daan",
     last_name: "Phillip",
     email: "daanphillip@gmail.com",
@@ -191,103 +202,57 @@ puts "Seeding database"
     bio: "Andrew Wright began the Wright Piano School in the Hague in 2009 as a private teaching practice. Students of Andrew Wright have gone on to be accepted to the most important conservatoires of the Netherlands (Amsterdam, Utrecht, the Hague) and have been successful in national and international competitions. The Wright Piano School places emphasis on inspiration, hard work and achievement. Some students are on their way to becoming professional musicians, while others simply play for fun. The teachers find ways to help all students advance through regular practice. Luckily, the many performances opportunities offered to students provide great motivation, as students are always practicing toward a performance. The sense of accomplishment from each recital, masterclass or exam performance keeps them working hard! All of the associate teachers at the Wright Piano School are highly qualified with a degree in piano and an affinity for teaching.",
     birthdate: "01-10-1985",
     languages: "English and Dutch",
-    teacher: true
-  )
- user.save!
-  user.photo = Rails.root.join("app/assets/images/male_4.jpg")
-  user.save!
-
-# student
-  user = User.new(
-    first_name: "Pim",
-    last_name: "Hulskorte",
-    email: "pimhulskorte@gmail.com",
-    phone: "0639594969",
-    password: '123456789',
-    birthdate: '28-05-1991'
-  )
-
-  # User.all.each do |user|
-  #   user.photo_url = "find a nice pic url"
-  # end
+    teacher: true,
+    photo: Rails.root.join("app/assets/images/male_4.jpg")
+}]
 
 
-# categories
-
-  category = Category.new(
-    name: "Music"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/music.jpg")
-  category.save!
-
-   category = Category.new(
-    name: "Dance"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/dance.jpg")
-  category.save!
-
-   category = Category.new(
-    name: "Driving"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/driving.jpg")
-  category.save!
-
-   category = Category.new(
-    name: "Sports"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/sports.jpg")
-  category.save!
-
-   category = Category.new(
-    name: "Yoga"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/yoga.jpg")
-  category.save!
-
-   category = Category.new(
-    name: "Languages"
-  )
-  category.save!
-  category.photo = Rails.root.join("app/assets/images/language.jpg")
-  category.save!
-
-
-counter = 0
+#titles
 titles = ["Learn playing Piano fast", "Master the Piano", "Love the Piano in a few lessons", "Discover the Piano", " Dive into playing Piano", "Improve your Piano skills", "Piano skill learn it fast", "Enhance your talent in playing Piano", "Want to learn Piano?"]
-# lessons, subcategories, appointments
-User.all.each do |user|
-  if user.teacher
-    cat = Category.first
-    subcat = Subcategory.new(name: ["Piano", "Violin", "Flute", "Drums", "Tuba"].sample)
-    subcat.category = cat
-    subcat.save!
-    counter += 1
-    lesson = Lesson.new(
-      description: "Want to learn playing the piano fast? You have found the right teacher! I have taught multiple students and all of them could play multiple pieces after just one lesson. Together we will explore your basic skill in playing the piano and then we decide which songs are suitable for you.",
-      hour_price: [90, 85, 80, 75, 70, 65].sample,
-      subcategory: subcat,
-      level: ["Beginner", "Intermediate", "Advanced"].sample,
-      title: titles[counter]
-    )
-    lesson.user = user
-    lesson.save!
-  elsif Lesson.first
-    lesson = Lesson.all.sample
-    length = [30, 45, 60].sample
-    appt = Appointment.new(
-      lesson: lesson,
-      length: length,
-      total_price: lesson.hour_price * length / 60,
-      status: "unconfirmed"
-    )
-    appt.user = user
-    appt.save!
+counter = 0
+
+
+#category -> subcategory -> user -> lessons + title -> appointments
+categories_attributes.each do |categories_attribute|
+  Category.create!(categories_attribute)
+end
+
+Category.all.each do |cat|
+    #subcategory
+  ["Piano", "Violin", "Flute", "Drums", "Tuba"].each do |subcat|
+    sub = Subcategory.new(name: subcat)
+    sub.category = cat
+    sub.save!
   end
+end
+
+users_attributes.each do |user_attribute|
+    #user
+  user = User.create!(user_attribute)
+  # lessons_attributes.each do |lesson_attribute|
+    #lessons
+
+      lesson = Lesson.create!({
+        description: "Want to learn playing the piano fast? You have found the right teacher! I have taught multiple students and all of them could play multiple pieces after just one lesson. Together we will explore your basic skill in playing the piano and then we decide which songs are suitable for you.",
+        hour_price: [90, 85, 80, 75, 70, 65].sample,
+        user: user,
+        subcategory: Subcategory.all.sample,
+        level: ["Beginner", "Intermediate", "Advanced"].sample,
+    #title
+        title: titles[counter]
+      })
+      counter += 1
+    #appointments
+      (1..3).to_a.sample.times do
+        appt = Appointment.new({
+          lesson: lesson,
+          user: user,
+          length: [20, 30, 45, 60, 90].sample,
+          status: %w[unconfirmed, confirmed, canceled, denied].sample
+         })
+        appt.total_price = lesson.hour_price * appt.length / 60
+        appt.save!
+      end
 end
 
 puts "Finished!"
