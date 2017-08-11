@@ -1,3 +1,4 @@
+<%= link_to lesson_path(lesson) do %>
 <h4><%= lesson.title %></h4>
 <p><%= lesson.user.first_name + " " + lesson.user.last_name %></p>
 <p>Hour price: <%= lesson.hour_price %></p>
@@ -5,4 +6,5 @@
   <%= cl_image_tag lesson.photo.path, width: 210, height: 150, crop: :fill, gravity: :face %>
 <% else %>
   <%= cl_image_tag lesson.user.photo.path, width: 210, height: 150, crop: :fill, gravity: :face %>
+<% end %>
 <% end %>
