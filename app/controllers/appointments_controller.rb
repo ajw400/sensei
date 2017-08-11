@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
     appt.user = current_user
     appt.lesson = Lesson.find(params[:lesson_id])
     appt.status = "unconfirmed"
-    # appt.total_price = params[:length] * appt.lesson.hour_price
+    appt.total_price = appt.length * appt.lesson.hour_price / 60
     appt.save!
     redirect_to profile_path
   end

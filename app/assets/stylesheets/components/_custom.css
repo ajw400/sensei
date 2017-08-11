@@ -1,0 +1,22 @@
+.form-control {
+    font-size: 1em;
+    line-height: 1.85714286em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Source Sans Pro', 'Helvetica', sans-serif;
+    color: #666666;
+    font-weight: 400;
+}
+
+.form_label_white {
+  color: white;
+  font-size: 18px;
+}
+
+.translucent_button {
+  background-color: white;
+  opacity: 0.2;
+  color: white;
+  font-size: 16px;
+  border-color: white;
+}

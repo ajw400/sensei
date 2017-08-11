@@ -1,19 +1,21 @@
 <% title "Sensei - Home" %>
-<section class="cover height-70 imagebg parallax" data-overlay="8">
+<section class="cover height-70 imagebg parallax" data-overlay="6">
   <div class="background-image-holder">
     <%= image_tag "background/home.jpg" %>
   </div>
   <div class="container pos-vertical-center">
     <div class="row">
-      <div class="col-sm-9 col-md-7">
-        <h1>
-          Studiate
-        </h1>
-        <h2>
+      <div class="col-sm-9 col-md-12 mt--3">
+        <h1 class="">
           Learn Anything from Amazing Teachers
-        </h2>
+        </h1>
         <!-- <p class="lead">
         </p> -->
+        <a class="btn btn--primary type--uppercase inner-link" href="#about">
+          <span class="btn__text">
+            How it works
+          </span>
+        </a>
       </div>
     </div>
   </div>
@@ -30,7 +32,7 @@
         <div class="">
           <div class="row">
             <div class="masonry__container">
-              <%= render 'shared/list' %>
+              <%= render 'shared/list', lessons: @lessons %>
             </div>
           </div>
         </div>
@@ -38,5 +40,21 @@
     </div>
   </div>
 </section>
-
+<section id="about" class="text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-md-8">
+        <h2>About Studiate</h2>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, sed meis ponderum eu. Qui in veniam oblique nominavi, an eos dicam quaeque, et congue feugait menandri ius. Iisque ponderum eos ne. Duo vide deserunt ne, ad sed dicant commune, nisl pericula vis et. Aperiri legimus reprehendunt has ad, vis ea consul habemus epicurei. Scripserit instructior id per, solet iudicabit per ut.
+        </p>
+        <p class="lead">
+          Legere graeci efficiendi ex mei, tibique suscipit in cum. Eu altera discere scribentur vel, dicam apeirian assentior mel cu. His habeo repudiandae te, in dico justo quodsi pri, ne insolens conclusionemque vis. Delicata facilisis usu cu, vel te sint duis. Te harum putant qui.
+        </p>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>
 
